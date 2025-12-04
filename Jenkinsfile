@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         AWS_REGION = 'us-east-1'
-        ECR_REPO = 'my-repo'
+        ECR_REPO = 'medicalchatbot'
         IMAGE_TAG = 'latest'
         SERVICE_NAME = 'llmops-medical-service'
     }
@@ -18,7 +18,7 @@ pipeline {
             }
         }
 
-/*       stage('Build, Scan, and Push Docker Image to ECR') {
+       stage('Build, Scan, and Push Docker Image to ECR') {
             steps {
                 withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws-token']]) {
                     script {
@@ -40,7 +40,7 @@ pipeline {
             }
         }
 
-         stage('Deploy to AWS App Runner') {
+        /* stage('Deploy to AWS App Runner') {
             steps {
                 withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws-token']]) {
                     script {
