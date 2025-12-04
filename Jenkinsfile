@@ -18,18 +18,6 @@ pipeline {
             }
         }
 
-        stage('Install AWS CLI') {
-    steps {
-        sh '''
-            apt-get update
-            apt-get install -y unzip
-            curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-            unzip awscliv2.zip
-            sudo ./aws/install
-        '''
-    }
-}
-
        stage('Build, Scan, and Push Docker Image to ECR') {
             steps {
                 withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws-token']]) {
