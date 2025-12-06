@@ -41,9 +41,10 @@ def create_qa_chain():
         qa_chain = RetrievalQA.from_chain_type(
             llm=llm,
             chain_type="stuff",
-            retriever=db.as_retriever(search_kwargs={'k': 1}),
+            retriever=db.as_retriever(search_kwargs={'k': 2}),
             return_source_documents=False,
-            chain_type_kwargs={'prompt': set_custom_prompt()}
+            chain_type_kwargs={'prompt': set_custom_prompt()},
+            input_key='query'
         )
 
         logger.info("Successfully created the QA chain")

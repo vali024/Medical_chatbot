@@ -2,6 +2,7 @@ langchain
 langchain_community
 langchain_huggingface
 langchain_groq
+langchain_openai
 faiss-cpu
 pypdf
 huggingface_hub
